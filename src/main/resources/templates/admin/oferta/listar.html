@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<title>SisEscola-Disc</title>
+</head>
+
+<body>
+
+	<!-- cabeçalho header -->
+	<div th:insert="fragmentos/layout :: header-collapse-admin"></div>
+
+
+	<div class="wrapper">
+
+		<!-- sideBar -->
+		<div th:insert="fragmentos/layout :: sideBar-admin"></div>
+
+		<!-- Conteúdo  -->
+		<div id="content" class="container-fluid px-1" th>
+			<div class="card">
+				<h4 class="card-header">Ofertas</h4>
+				
+				
+				<!-- menssagem sucesso -->
+				<div class="alert  alert-success" th:if="${!#strings.isEmpty(mensagem)}">
+					<i class="fa fa-check-circle"></i>
+
+					<span th:text="${mensagem}">Mensagem sucesso!</span>
+				</div>
+
+
+				<!-- Formulário  -->
+				<form th:action="@{/ofertas/inserir}" th:object="${oferta}" method="post">
+					
+				<!-- messagem erro -->								
+				<div class="alert  alert-danger  alert-dismissible" role="alert"
+				th:if="${#fields.hasAnyErrors()}">
+				
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<div th:each="erro:${#fields.detailedErrors()}">
+						<i class="fa fa-exclamation-circle"></i>						
+						<span th:text="${erro.message}">Mensagem erro.</span>
+					</div>
+				</div>
+								
+				
+				<input type="hidden" th:field="*{id}"/>
+					<div class="form-row px-1">
+						<div class="form-group col-md-3">
+							<label for="inputId" class="">Id</label><input type="text" th:field="*{id}" 
+								class="form-control form-control-sm" id="inputId" placeholder="Id" disabled="disabled"/>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="inputSerie">Serie</label> <input type="text" th:field="*{serie}" required="required"
+								class="form-control form-control-sm text-uppercase" maxlength="2"
+								onkeyup="maiuscula(this)" id="inputSerie" placeholder="Série e turma. ex: 1A"/>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="inputTurno">Turno</label> 
+							<select id="inputTurno" th:field="*{turno}"
+								class="form-control form-control-sm">
+								<option value="">Escolha</option>
+								<option th:each="turno: ${turnos}"
+								th:value="${turno}" th:text="${turno}">...</option>
+							</select>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="inputAno">Ano</label><input type="number" th:field="*{ano}" required="required" min="2018" max="9999"
+								class="form-control form-control-sm" id="inputAno" placeholder="Ano"/>
+								
+						</div>					
+						
+					</div>
+											
+					<div class="form-row pl-1">
+						<div class="form-group col-md-12">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+						</div>
+					</div>
+				</form>
+
+	<div class="table-responsive px-1">
+	<table class="table table-striped table-bordered table-sm"
+			id="tbl-OFERTA">
+			<thead>
+				<tr>
+					<th class="text-center">ID</th>
+					<th class="text-center">SÉRIE</th>
+					<th class="text-center">TURNO</th>
+					<th class="text-center">ANO</th>
+					<th class="text-center">Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			<tr th:each="objeto: ${listarOfertas}">
+			
+					<td th:text="${objeto.id}" />
+					<td th:text="${objeto.serie}" />
+					<td th:text="${objeto.turno}" />
+					<td th:text="${objeto.ano}" />
+					<td class="text-center">
+						<a th:href="@{/ofertas/editar/{id}(id=${objeto.id})}"
+						aria-hidden="false" title="editar"><i class="fas fa-edit"></i></a>
+						
+						<a th:href="@{/ofertas/excluir/{id}(id=${objeto.id})}"  onclick="return confirm('Tem Certeza Que Deseja Excluir?');"
+						aria-hidden="true" title="excluir"><i class="fas fa-trash"></i></a>
+						
+						</td>
+					
+
+			</tbody>
+	</table>		
+	</div><!-- fim div responsive -->
+
+
+
+
+
+
+
+
+			</div>
+			<!-- fim card -->
+		</div>
+		<!-- fim conteúdo -->
+
+	</div>
+	<!-- fim wraper -->
+
+
+	<div th:insert="fragmentos/layout :: footer"></div>
+	<script th:src="@{/js/jquery-3.3.1.slim.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/jquery.mask.min.js}"></script>
+	<script th:src="@{/js/font.js}"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#sidebarCollapse').on('click', function() {
+				$('#sidebar').toggleClass('active');
+			});
+		});
+		
+		function maiuscula(z) {
+			v = z.value.toUpperCase();
+			z.value = v;
+		}
+	</script>
+
+
+
+
+</body>
+</html>

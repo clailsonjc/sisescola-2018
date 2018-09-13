@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+
+
+
+<title>SisEscola</title>
+</head>
+<body class="body-home">
+	<div th:insert="fragmentos/layout :: header"></div>
+
+	<!-- container -->
+	<div class="container text-center" id="body2">
+	
+		<div class="row pt-3">
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'agenda'})}" class="form-horizontal" method="get" >
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-calendar-alt fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">AGENDA LEI</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'horario'})}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-clock fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">HORÁRIO ESCOLAR</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'livros'})}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-book fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">LIVROS</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6 ">
+			<form th:action="@{http://localhost:8080/pocflix/}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fab fa-youtube-square fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">POCFLIX</span></h5>
+			</div>
+		</div>
+		<!-- fim div row -->
+
+		<div class="row pt-3">
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{http://localhost:8080/poceletivas/}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fab fa-readme fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">ELETIVAS</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{http://localhost:8080/ckbase/}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-edit fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">PROVAS ONLINE</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'blog'})}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fab fa-blogger fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">BLOG PROFESSORES</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'enem'})}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-check fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">ENEM</span></h5>
+			</div>
+		</div>
+		<!-- fim div row -->
+		
+		<div class="row pt-3 py-4">
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'spaece'})}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-cubes fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">SPAECE</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{/pages/{nome}(nome=${'links'})}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-external-link-square-alt fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">LINKS ÚTEIS</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form action="http://aluno.seduc.ce.gov.br/" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-book-reader fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">ALUNO-ONLINE</span></h5>
+			</div>
+
+			<div class="col-md-3 col-sm-6">
+			<form th:action="@{#}" class="form-horizontal" method="get">
+				<button type="submit" class="btn btn-outline-primary btn-circle btn-exl bg-collor-bt">
+					<i class="fas fa-home fa-3x"></i>
+				</button>
+			</form>	
+				<h5><span class="badge badge-primary badge-pill">NOSSA ESCOLA</span></h5>
+			</div>
+		</div>
+		<!-- fim div row -->
+				
+
+	</div>
+	<!-- fim div container -->
+	
+	
+<div th:insert="fragmentos/layout :: footer"></div>
+
+	<script th:src="@{/js/jquery-3.3.1.slim.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/jquery.mask.min.js}"></script>
+	<script th:src="@{/js/font.js}"></script>
+
+</body>
+</html>

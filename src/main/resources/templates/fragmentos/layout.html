@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<!--para página index -->
+	<div th:fragment="header">
+		<!-- NavBar -->
+		<nav
+			class="navbar navbar-expand-md  navbar-dark bg-collor-nav fixed-top ">
+			<a href="#" class="btn btn-primary navbar-brand"><i class="fas fa-book-open fa-">
+				</i>&nbsp;SISESCOLA				
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="link-nav" href="#">
+							<i class="fas fa-users"></i>&nbsp;Administrador
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>	
+	
+	<!--cabeçalho com o botão do colapse -->
+	<div th:fragment="header-collapse">
+		<!-- NavBar -->
+		<nav
+			class="navbar navbar-expand-md  navbar-dark bg-collor-nav fixed-top ">
+			<div>
+			<a href="#" class="btn btn-primary navbar-brand"><i class="fas fa-book-open fa-">
+				</i>&nbsp;SISESCOLA				
+			</a>
+				<button type="button" id="sidebarCollapse" class="btn btn-outline-light btn-sm">
+						<i class="fas fa-align-left"></i>
+				</button>
+			</div>					
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="link-nav" href="#">
+							<i class="fas fa-users"></i>&nbsp;Administrador
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>	
+	
+	<!-- Sidebar menu lateral-->
+	<div th:fragment="sideBar">
+	
+		<nav id="sidebar">
+
+			<div class="sidebar-header">
+				<h3>SISESCOLA</h3>
+			</div>
+
+			<ul class="list-unstyled">
+			    <li><a th:href="@{/}"><i class="fas fa-home"></i> Home</a></li>
+				<li><a th:href="@{/pages/{nome}(nome=${'agenda'})}"><i class="fas fa-calendar-alt"></i> Agenda Lei</a></li>				
+				<li><a th:href="@{/pages/{nome}(nome=${'horario'})}"><i class="fas fa-clock"></i> Horário Escolar</a></li>
+				<li><a th:href="@{/pages/{nome}(nome=${'livros'})}"><i class="fas fa-book"></i> Livros</a></li>				
+				<li><a th:href="@{/pages/{nome}(nome=${'blog'})}"><i class="fab fa-blogger"></i> Blog Professores</a></li>
+				<li><a th:href="@{/pages/{nome}(nome=${'enem'})}"><i class="fas fa-check"></i> Enem</a></li>
+				<li><a th:href="@{/pages/{nome}(nome=${'spaece'})}"><i class="fas fa-cubes"></i> Spaece</a></li>
+				<li><a th:href="@{/pages/{nome}(nome=${'links'})}"><i class="fas fa-external-link-square-alt"></i> Links Úteis</a></li>				
+				<li><a href="#"><i class="fab fa-youtube-square"></i> PocFlix</a></li>
+				<li><a href="#"><i class="fab fa-readme"></i> Eletivas</a></li>
+				<li><a href="#"><i class="fas fa-edit"></i> Provas Online</a></li>
+				<li><a href="http://aluno.seduc.ce.gov.br/"><i class="fas fa-book-reader"></i> Aluno Online</a></li>
+				
+			</ul>
+		</nav>
+	</div>
+	
+	
+	
+	<!--Administrador -->
+	
+	<!--cabeçalho com o botão do colapse administrador -->
+	<div th:fragment="header-collapse-admin">
+		<!-- NavBar -->
+		<nav
+			class="navbar navbar-expand-md  navbar-dark bg-collor-nav fixed-top ">
+			<div>
+			<a href="#" class="btn btn-primary navbar-brand"><i class="fas fa-book-open fa-">
+				</i>&nbsp;SISESCOLA				
+			</a>
+				<button type="button" id="sidebarCollapse" class="btn btn-outline-light btn-sm">
+						<i class="fas fa-align-left"></i>
+				</button>
+			</div>					
+			
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="link-nav" href="#">
+							<i class="fas fa-door-open"></i>&nbsp;SAIR
+					</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>		
+	
+	<!-- Sidebar menu lateral administrador-->
+	<div th:fragment="sideBar-admin">	
+		<nav id="sidebar">
+			<div class="sidebar-header">
+				<h3>SISESCOLA</h3>
+			</div>
+
+			<ul class="list-unstyled">
+			    
+			    <li><a th:href="@{/ofertas/listar}"><i class="fas fa-pencil"></i> Ofertas</a></li>
+			    <li><a th:href="@{/disciplinas/listar}"><i class="fas fa-pencil"></i> Disciplinas</a></li>
+			    <li><a th:href="@{/professores/listar}"><i class="fas fa-pencil"></i> Professores</a></li>
+			    <li><a th:href="@{/equipamentos/listar}"><i class="fas fa-pencil"></i> Equipamentos</a></li>
+			    
+			    <li><a th:href="@{/locais/listar}"><i class="fas fa-clock"></i> Locais</a></li>			    
+				<li><a th:href="@{/agendas/listar}"><i class="fas fa-calendar-alt"></i> Agenda Lei</a></li>								
+				<li><a th:href="@{/horarios/listar}"><i class="fas fa-clock"></i> Horário Escolar</a></li>
+				
+				<li><a th:href="@{/livros/listar}"><i class="fas fa-book"></i> Livros</a></li>				
+				<li><a th:href="@{/blogs/listar}"><i class="fab fa-blogger"></i> Blog Professores</a></li>
+				<li><a th:href="@{/links/listar}"><i class="fas fa-external-link-square-alt"></i> Links Úteis</a></li>	
+				
+				<li><a th:href="@{/pages/{nome}(nome=${'enem'})}"><i class="fas fa-check"></i> Enem</a></li>
+				<li><a th:href="@{/pages/{nome}(nome=${'spaece'})}"><i class="fas fa-cubes"></i> Spaece</a></li>
+				
+				<li><a href="#"><i class="fab fa-youtube-square"></i> PocFlix</a></li>
+				
+				
+				
+				
+			</ul>
+		</nav>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<!--footer -->
+	<div th:fragment="footer">
+		<footer class="text-white text-center mb-0">
+			<div class="container-fluid bg-collor-nav py-1 mb-1"></div>
+
+			<div class="container-fluid bg-collor-nav py-2">
+				<p class="mb-0 font-weight-bold">SISESCOLA - &copy;2018.</p>
+				<p class="mb-0 lead" style="font-size: 14px;">DESENVOLVIDO POR
+					CLAILSON MATIAS JUCÁ.</p>
+			</div>
+		</footer>
+
+	</div>
+
+
+
+</body>
+</html>
