@@ -1,4 +1,4 @@
-package com.sisescola.repository;
+package com.sisescola.repositories;
 
 import java.util.List;
 

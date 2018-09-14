@@ -1,4 +1,4 @@
-package com.sisescola.controller;
+package com.sisescola.controllers;
 
 public class LocalController {
 
